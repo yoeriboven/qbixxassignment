@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domain\Clients\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends  Model
+class Client extends Model
 {
-
 }

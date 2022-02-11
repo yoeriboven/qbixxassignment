@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /vendor
+.php-cs-fixer.cache
+.php_cs.cache
 .env
 .env.backup
 .phpunit.result.cache
