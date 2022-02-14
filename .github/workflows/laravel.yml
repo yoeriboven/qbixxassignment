@@ -33,3 +33,31 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
+
+  php-lint:
+    name: Check PHP code style
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, mysql, imagick
+          coverage: none
+
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Prepare the environment
+        run: cp .env.testing .env
+
+      - name: Validate Composer configuration file
+        run: composer validate
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader
+
+      - name: Lint code
+        run: ./vendor/bin/php-cs-fixer fix --dry-run --diff
