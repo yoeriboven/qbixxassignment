@@ -8,7 +8,7 @@ use App\Enums\RoutesEnum;
 use Domain\Clients\Models\Client;
 use Tests\FeatureTest;
 
-class ClientIndexTest extends FeatureTest
+class IndexClientsTest extends FeatureTest
 {
     /**
      * @test
