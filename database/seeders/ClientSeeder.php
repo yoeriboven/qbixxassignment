@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use Domain\Clients\Models\Client;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ClientSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        $this->call(ClientSeeder::class);
+        Client::factory()->count(5)->create();
     }
 }
