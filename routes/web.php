@@ -1,6 +1,8 @@
 <?php
 
+use App\Enums\RoutesEnum;
 use Illuminate\Support\Facades\Route;
+use Interfaces\Admin\Clients\Controllers\IndexClients;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('admin/clients', IndexClients::class)->name(RoutesEnum::ADMIN_INDEX_CLIENTS);
