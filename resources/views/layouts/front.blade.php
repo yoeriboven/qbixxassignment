@@ -1,8 +1,7 @@
 @extends("layouts.app")
 
 @section("body")
-    <div>
-        <div>Front nav bar</div>
+    <div class="w-full">
         @yield("content")
     </div>
 @endsection

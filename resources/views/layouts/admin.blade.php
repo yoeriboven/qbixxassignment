@@ -15,7 +15,7 @@
                         </ul>
                         <ul class="navbar-nav flex flex-col pl-0 list-style-none right-0">
                             <li class="nav-item p-2">
-                                <a class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="{{ route(RoutesEnum::ADMIN_INDEX_CLIENTS) }}">To the front end</a>
+                                <a class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="{{ route(RoutesEnum::FRONT_WELCOME) }}">To the front end</a>
                             </li>
                         </ul>
                     </div>
