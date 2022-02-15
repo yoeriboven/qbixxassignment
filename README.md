@@ -14,4 +14,6 @@ After that, you should run:
 - copy the .env.example to .env
 - generate the APP key
 
-Then the project should be ready. It's up to you how're you gonna run it. Laravel test server, Valet, Laravel sail, etc, everything is okay, as long as the project works and code is well structured :).
+Then the project should be ready. It's up to you how're you going to run it. Laravel test server, Valet, Laravel sail, etc, everything is okay, as long as the project works and code is well structured :).
+
+Note: .env.example is set to run on Laravel sail. If you tend to use something else, tweak it to your needs.
