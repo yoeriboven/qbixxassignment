@@ -6,9 +6,9 @@ namespace Tests\Feature\Admin\Clients;
 
 use App\Enums\RoutesEnum;
 use Domain\Clients\Models\Client;
-use Tests\TestCase;
+use Tests\FeatureTest;
 
-class ClientIndexTest extends TestCase
+class ClientIndexTest extends FeatureTest
 {
     /**
      * @test
@@ -17,7 +17,7 @@ class ClientIndexTest extends TestCase
     {
         $clients = Client::factory()->count(5)->create();
 
-        $response = $this->get(RoutesEnum::ADMIN_INDEX_CLIENTS)
+        $response = $this->get(route(RoutesEnum::ADMIN_INDEX_CLIENTS))
             ->assertOk();
 
         foreach ($clients as $client) {
