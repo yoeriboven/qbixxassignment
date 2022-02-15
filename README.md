@@ -1,6 +1,6 @@
 ## Qbixx Test Project
 
-Hey there! Welcome to the Qbixx test project. You can find your test assignment here.
+Hey there! Welcome to the Qbixx test project. You can find your test assignment [here](docs/TestAssigment.md).
 But first, let's set up the project!
 
 This is a real simple Laravel app, so setting it up should be pretty straightforward.
