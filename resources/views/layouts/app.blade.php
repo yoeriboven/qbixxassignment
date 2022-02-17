@@ -9,14 +9,13 @@
         <link rel="icon" href="{{ asset('images/qbixx.png') }}">
 
         <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
-        <div class="flex items-top dark:bg-gray-900 px-40">
-            @yield('body')
-        </div>
+    <body class="antialiased font-sans font-normal text-gray-700 leading-normal">
+        @yield('body')
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}"></script>
