@@ -1,7 +1,7 @@
 **Backend Assignment**
 
 **As an** Admin  
-**I want to** be able to add, edit, view and delete clients  
+**I want to** be able to CRUD clients  
 **So that** I can manage the clients to the best of my abilities  
 
 
