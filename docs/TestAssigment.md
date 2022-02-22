@@ -39,12 +39,17 @@ ________
 
 **Frontend Assignment**
 
-**As an** User  
-**I want to**  
-**So that**  
+**As an** Admin  
+**I want** the backoffice and client view to be visually appealing and userfriendly  
+**So that** I can easily make use of the features without any frustrations
 
-<ins>Description</ins>
+<ins>Description</ins>  
+Currently the backoffice and client view are visually as simple as can be. Also there is not really paid any attention in particular to user friendliness. We would like to introduce this so that the product is easy and nice to work with.
 
-<ins>Specifications</ins>
-
+<ins>Specifications</ins>  
+- Make the backoffice and client view visually appealing and easy to work with (keep UX and Usability in mind).
+  - Make use of the following methods:
+    - Tailwind CSS
+    - Vue JS
+    - Inertia
 
