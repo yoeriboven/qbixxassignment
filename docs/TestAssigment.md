@@ -22,7 +22,7 @@ We want to be able to add content to the client in different languages. It must 
 
 - Make the 'view' icon work:
   - It must be possible to view the client by clicking on the eye icon.  
-    - When viewing the client, the content must become visible
+    - When viewing the client, the content must become visible on a different page
     - It must be possible to choose a language & switch between the different languages
     - When the client has no content yet, the view page of the client will be empty. What would you suggest to show in that situation?  
     - What if the client has no content for a certain language? How should we handle that situation?
