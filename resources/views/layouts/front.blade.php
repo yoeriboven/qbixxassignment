@@ -6,7 +6,6 @@
 
         <title>@yield('title') - Qbixx test</title>
 
-        <link rel="icon" href="{{ asset('images/qbixx.png') }}">
         <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 

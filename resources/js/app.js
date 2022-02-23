@@ -1,8 +1,9 @@
-require('./bootstrap')
-
 import {createApp, h} from 'vue'
 import {createInertiaApp, Head, Link} from '@inertiajs/inertia-vue3'
 import {InertiaProgress} from '@inertiajs/progress'
+
+window.axios = require('axios')
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 
 createInertiaApp({
     title: title => `${title} - Qbixx Assignment`,
