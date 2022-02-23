@@ -2,14 +2,14 @@ APP_NAME=Laravel
 APP_ENV=testing
 APP_KEY=base64:XYs1hfnItnP9Rcu1dUbrZxS/ynlE4agJ+2gRYQKmjww=
 APP_DEBUG=true
-APP_URL=http://qbixxassignment.test
+APP_URL=http://localhost
 
 LOG_CHANNEL=stack
 LOG_DEPRECATIONS_CHANNEL=null
 LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
-DB_HOST=localhost
+DB_HOST=mysql_test
 DB_PORT=3306
 DB_DATABASE=qbixxassignment_test
 DB_USERNAME=qbixxassignment_test
