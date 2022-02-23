@@ -80,8 +80,7 @@
             "@php -r \"file_exists('.env.testing') || copy('.env.testing.valet', '.env.testing');\"",
             "@php artisan key:generate",
             "npm install",
-            "@php artisan migrate",
-            "@php artisan db:seed",
+            "@php artisan migrate:fresh --seed",
             "npm run dev",
             "@autocomplete"
         ],
@@ -93,8 +92,7 @@
             "@php -r \"file_exists('.env.testing') || copy('.env.testing.sail', '.env.testing');\"",
             "@php artisan key:generate",
             "npm install",
-            "@php artisan migrate",
-            "@php artisan db:seed",
+            "@php artisan migrate:fresh --seed",
             "npm run dev",
             "@autocomplete"
         ],
