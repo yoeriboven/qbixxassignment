@@ -4,8 +4,6 @@ import {createApp, h} from 'vue'
 import {createInertiaApp, Head, Link} from '@inertiajs/inertia-vue3'
 import {InertiaProgress} from '@inertiajs/progress'
 
-InertiaProgress.init()
-
 createInertiaApp({
     title: title => `${title} - Qbixx Assignment`,
     resolve: name => require(`./Pages/${name}`),
@@ -17,4 +15,5 @@ createInertiaApp({
             .mount(el)
     },
 })
-;
+
+InertiaProgress.init()
