@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,5 +16,7 @@ class AppServiceProvider extends ServiceProvider
         Factory::guessFactoryNamesUsing(static function (string $modelName): string {
             return 'Database\\Factories\\'.class_basename($modelName).'Factory';
         });
+
+        Eloquent::unguard();
     }
 }

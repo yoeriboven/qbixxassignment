@@ -22,4 +22,4 @@ use Interfaces\Front\Landing\WelcomeController;
 Route::get('/', WelcomeController::class)->name(RoutesEnum::FRONT_WELCOME);
 Route::get('admin/clients', IndexClients::class)->name(RoutesEnum::ADMIN_INDEX_CLIENTS);
 Route::inertia('admin/clients/create', 'Admin/Clients/Create')->name(RoutesEnum::ADMIN_CREATE_CLIENT);
-Route::post('admin/clients', StoreClient::class)->name(RoutesEnum::ADMIN_STORE_CLIENT);
+Route::post('admin/clients/create', StoreClient::class)->name(RoutesEnum::ADMIN_STORE_CLIENT);

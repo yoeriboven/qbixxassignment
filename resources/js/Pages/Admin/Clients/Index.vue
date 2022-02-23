@@ -4,7 +4,7 @@
 
         <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
 
-            <div class="py-8 px-6">
+            <div class="py-8 px-6 flex justify-end">
                 <a class="inline-block px-6 py-2 border-2 border-blue-600 bg-blue-600 border-blue-600 text-white leading-tight font-bold rounded hover:bg-blue-500 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" href="/admin/clients/create">
                     New client
                 </a>

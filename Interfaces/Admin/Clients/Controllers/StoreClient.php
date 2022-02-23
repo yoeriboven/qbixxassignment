@@ -14,9 +14,7 @@ class StoreClient extends Controller
 {
     public function __invoke(StoreClientRequest $request): RedirectResponse
     {
-        $client = new Client;
-        $client->name = $request->name;
-        $client->save();
+        Client::create($request->safe(['name']));
 
         return redirect()->route(RoutesEnum::ADMIN_INDEX_CLIENTS);
     }
