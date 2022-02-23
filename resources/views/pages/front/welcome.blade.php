@@ -1,8 +1,8 @@
-@extends("layouts.front")
+@extends('layouts.front')
 
-@section("title", "Welcome")
+@section('title', 'Welcome')
 
-@section("content")
+@section('content')
     <section>
         <div class="rounded-lg bg-dark m-4 py-8">
             <div class="text-white text-center py-8 md:py-12 lg:py-24">

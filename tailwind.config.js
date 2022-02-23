@@ -7,19 +7,6 @@ module.exports = {
     ],
     theme: {
         extend: {
-            colors: {
-                blue: {
-                    100: '#EBF8FF',
-                    200: '#BCDEFA',
-                    300: '#6CB2EB',
-                    400: '#63B3ED',
-                    500: '#249EEA',
-                    600: '#127ABA',
-                    700: '#2B6CB0',
-                    800: '#2C5282',
-                    900: '#2A4365',
-                },
-            },
             fontFamily: {
                 sans: [
                     'Nunito',

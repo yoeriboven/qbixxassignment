@@ -1,7 +1,16 @@
 const mix = require('laravel-mix')
+const path = require('path')
 
 mix.disableNotifications()
 mix.vue()
+
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './resources'),
+        },
+    },
+})
 
 if (mix.inProduction()) {
     mix.version()

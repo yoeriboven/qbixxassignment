@@ -1,7 +1,11 @@
 {
     "private": true,
     "dependencies": {
-        "tw-elements": "^1.0.0-alpha11"
+        "@inertiajs/inertia": "^0.11.0",
+        "@inertiajs/inertia-vue3": "^0.6.0",
+        "@inertiajs/progress": "^0.2.7",
+        "tw-elements": "^1.0.0-alpha11",
+        "vue": "^3.2.31"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.2",
@@ -9,7 +13,8 @@
         "laravel-mix": "^6.0.43",
         "lodash": "^4.17.19",
         "postcss": "^8.4.6",
-        "tailwindcss": "^3.0.23"
+        "tailwindcss": "^3.0.23",
+        "vue-loader": "^16.8.3"
     },
     "scripts": {
         "dev": "npm run development",
