@@ -1,6 +1,6 @@
 APP_NAME=Laravel
-APP_ENV=testing
-APP_KEY=base64:XYs1hfnItnP9Rcu1dUbrZxS/ynlE4agJ+2gRYQKmjww=
+APP_ENV=local
+APP_KEY=
 APP_DEBUG=true
 APP_URL=http://localhost
 
@@ -9,11 +9,11 @@ LOG_DEPRECATIONS_CHANNEL=null
 LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
-DB_HOST=mysql_test
+DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=qbixx_test
-DB_USERNAME=qbixxassignment_test
-DB_PASSWORD=qbixxassignment_test
+DB_DATABASE=qbixxassignment
+DB_USERNAME=qbixxassignment
+DB_PASSWORD=qbixxassignment
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
