@@ -18,8 +18,8 @@ We want to be able to add content to the client in different languages. It must 
     - Title
     - Paragraph
     - Type // one of [Wisdom, Philosophy, Design]
-  - All of the item fields should be translatable. So even a type can be different for each language
-  - For the BE part only it would be enough to place all fields for all lanugagues on a single page, and just focus on making it functional
+  - All the item fields should be translatable. So even a type can be different for each language
+  - For the BE part only it would be enough to place all fields for all languages on a single page, and just focus on making it functional
   -  We support:
      - English
      - Dutch
@@ -29,7 +29,7 @@ We want to be able to add content to the client in different languages. It must 
 
 - Make the `view` icon work:
   - This option should lead to the front part of the site, where client info would be shown in the selected language (If no language is selected show the default one)
-  - It must be possible to choose a language & switch between the different languages (For BE assigment only it is enough to refresh the page when choosing a lanugage)
+  - It must be possible to choose a language & switch between the different languages (For BE assigment only it is enough to refresh the page when choosing a language)
  
 - Note: On both `edit` and `view` pages if a client has no items set, there should be default values shown. You can find the default values provided at the end of the assigment.
 
@@ -45,20 +45,20 @@ ________
 **Frontend Assignment**
 
 **As an** Admin  
-**I want** the backoffice and client view to be visually appealing and userfriendly  
+**I want** the backoffice and client view to be visually appealing and user-friendly  
 **So that** I can easily make use of the features without any frustrations
 
 <ins>Description</ins>  
-Currently the backoffice and client view are visually as simple as can be. Also there is not really paid any attention in particular to user friendliness. We would like to introduce this so that the product is easy and nice to work with.
+Currently the backoffice and client view are visually as simple as can be. Also, there is not really paid any attention in particular to user-friendliness. We would like to introduce this so that the product is easy and nice to work with.
 
 <ins>Specifications</ins>  
 - Edit page
-  - Because we need to set fields for all lanugages, we'll need a separate tab for each lanugage
+  - Because we need to set fields for all languages, we'll need a separate tab for each language
   - Changing between the tabs should not refresh the page, only the content should be changed
-  - Available types should be shown in a drop down, and they should be searchable
+  - Available types should be shown in a drop-down, and they should be searchable
 - Show page
-  - Changing between lanugages should not refresh the page
-  - Each type of the items shold have a different design
+  - Changing between languages should not refresh the page
+  - Each type of the items should have a different design
 - Make the backoffice and client view visually appealing and easy to work with (keep UX and Usability in mind).
   - Make use of the following:
     - Tailwind CSS
