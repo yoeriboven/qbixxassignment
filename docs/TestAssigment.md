@@ -18,7 +18,8 @@ We want to be able to add content to the client in different languages. It must 
     - Title
     - Paragraph
     - Type // one of [Wisdom, Philosophy, Design]
-  - All of the item fields should be translatable. For the BE part only it would be enough to place all fields for all lanugagues on a single page, and just focus on making it functional
+  - All of the item fields should be translatable. So even a type can be different for each language
+  - For the BE part only it would be enough to place all fields for all lanugagues on a single page, and just focus on making it functional
   -  We support:
      - English
      - Dutch
