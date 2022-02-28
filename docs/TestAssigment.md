@@ -49,21 +49,53 @@ ________
 **So that** I can easily make use of the features without any frustrations
 
 <ins>Description</ins>  
-Currently the backoffice and client view are visually as simple as can be. Also, there is not really paid any attention in particular to user-friendliness. We would like to introduce this so that the product is easy and nice to work with.
+Currently the backoffice is visually as simple as can be. Also, there is not really paid any attention in particular to user-friendliness. We would like to introduce this so that the backoffice is easy and nice to work with.  
+  
+For the client view there is a design that needs to be recreated:  
+<img width="1399" alt="Schermafbeelding 2022-02-28 om 18 37 20" src="https://user-images.githubusercontent.com/7879745/156032558-f7df0a21-510a-4d31-8c34-37544433628f.png">
 
 <ins>Specifications</ins>  
-- Edit page
-  - Because we need to set fields for all languages, we'll need a separate tab for each language
-  - Changing between the tabs should not refresh the page, only the content should be changed
-  - Available types should be shown in a drop-down, and they should be searchable
-- Show page
-  - Changing between languages should not refresh the page
-  - Each type of the items should have a different design
-- Make the backoffice and client view visually appealing and easy to work with (keep UX and Usability in mind).
-  - Make use of the following:
-    - Tailwind CSS
-    - Vue JS
-    - Inertia
+- Backoffice
+  - Edit page:
+    - Because we need to set fields for all languages, we'll need a separate tab for each language
+    - Changing between the tabs should not refresh the page, only the content should be changed
+    - Available types should be shown in a drop-down, and they should be searchable
+  - Add/Delete flows are up to you. How would you handle this?
+  - Client overview page:
+    - Make this overview as clear as possible. There are no rules here, we would just like to see your creativity
+
+- Client view:
+<img width="1399" alt="Schermafbeelding 2022-02-28 om 18 37 20" src="https://user-images.githubusercontent.com/7879745/156033158-6862d84d-c3f6-448f-b6e3-3a930603d554.png">
+
+  - Background: #575F65
+  - Add a header
+    - Full width
+    - Background: #FFFFFF
+    - Show the name of the client on the left
+      - Font: Montserrat (Regular) 20px #000000
+    - Show the language toggle on the right
+      - Font: Montserrat (Bold) 14px #FFFFFF
+      - Background: #249EEA
+      - When a different language is chosen, the page should not refresh but the chosen language should be changed in the content  
+  - There are always 3 columns with content
+    - Backround: #FFFFFF (rounded corners)
+    - Make this page responsive
+    - Show the title (in the correct language) in each column
+      - Font: Montserrat (Bold) 50px #000000 
+      - The title can be over 2 lines, no more
+      - The titles of all 3 columns are always in line with eachother
+    - Show the text (in the correct language) in each column
+      - Font: Montserrat (Regular) 20px #000000
+      - The paragraph texts of all 3 columns are always in line with eachother 
+    - Show the type in each column. This is made visually with a label
+      - The content of the type is up to you (Type A, B, C is dummy content)
+      - The colour and look of the label which shows the type, is also up to you as long as each type has a different design to make clear which type is set
+    - Show the button in each column
+      - Font: Montserrat (Bold) 16px #FFFFFF
+      - Background: #249EEA
+      - The buttons of all 3 columns are always in line with eachother
+      - Add a hover effect
+      - This button has no function
 
 ________
 
