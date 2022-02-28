@@ -65,6 +65,8 @@ Currently the backoffice and client view are visually as simple as can be. Also,
     - Vue JS
     - Inertia
 
+________
+
 **Important notes**
 - For the sake of simplicity authentication/authorization are not the scope of this test
 - We will mostly look at the code structure/quality so please focus on that. There are many ways to solve the problem, so we leave it up to you to choose your way. Try to express your creativity :)
