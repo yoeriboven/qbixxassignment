@@ -119,6 +119,14 @@ ________
     - [EN] Philosophy
     - [NL] Filosofie
     - [FR] Philosophie
+  - Language
+    - [EN] Language
+    - [NL] Taal
+    - [FR] Langue
+  - Just a button
+    - [EN] Just a button
+    - [NL] Gewoon een knop
+    - [FR] Juste un bouton
  
  - Client items default data
    - Item 1
