@@ -51,8 +51,7 @@ ________
 <ins>Description</ins>  
 Currently the backoffice is visually as simple as can be. Also, there is not really paid any attention in particular to user-friendliness. We would like to introduce this so that the backoffice is easy and nice to work with.  
   
-For the client view there is a design that needs to be recreated:  
-<img width="1399" alt="Schermafbeelding 2022-02-28 om 18 37 20" src="https://user-images.githubusercontent.com/7879745/156032558-f7df0a21-510a-4d31-8c34-37544433628f.png">
+For the client view there is a design that needs to be recreated.  
 
 <ins>Specifications</ins>  
 - Backoffice
