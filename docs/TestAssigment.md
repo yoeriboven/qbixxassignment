@@ -54,7 +54,7 @@ Currently the backoffice is visually as simple as can be. Also, there is not rea
 For the client view there is a design that needs to be recreated.  
 
 <ins>Specifications</ins>  
-- Use the following technology:
+- Please use the following technologies:
   - Vue.js
   - Inertia
   - Tailwind CSS  
