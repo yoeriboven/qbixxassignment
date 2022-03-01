@@ -54,6 +54,11 @@ Currently the backoffice is visually as simple as can be. Also, there is not rea
 For the client view there is a design that needs to be recreated.  
 
 <ins>Specifications</ins>  
+- Use the following technology:
+  - Vue.js
+  - Inertia
+  - Tailwind CSS  
+  
 - Backoffice
   - Edit page:
     - Because we need to set fields for all languages, we'll need a separate tab for each language
