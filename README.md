@@ -10,7 +10,7 @@ But first, let's set up the project! This is a real simple Laravel app, so setti
 
 ## Databases
 
-If you're using Valet or laravel test server, you'll need to set up local databases. You can find the instruction [here](docs/TestAssigment.md)
+If you're using Valet or laravel test server, you'll need to set up local databases. You can find the instruction [here](docs/setting-up-db.md)
 
 Note: Laravel sail will automatically set up the db.
 
