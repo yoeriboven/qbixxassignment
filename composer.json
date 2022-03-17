@@ -5,21 +5,26 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
-        "fruitcake/laravel-cors": "^2.0.5",
-        "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^9.0",
-        "laravel/sanctum": "^2.14",
-        "laravel/tinker": "^2.7"
+        "php": "^8.1",
+        "fruitcake/laravel-cors": "^2.1.0",
+        "guzzlehttp/guzzle": "^7.4.1",
+        "inertiajs/inertia-laravel": "^0.5.4",
+        "laravel/framework": "^9.2.0",
+        "laravel/sanctum": "^2.14.2",
+        "laravel/tinker": "^2.7.0"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
-        "friendsofphp/php-cs-fixer": "^3.6",
-        "laravel/sail": "^1.0.1",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "barryvdh/laravel-debugbar": "^3.6.7",
+        "barryvdh/laravel-ide-helper": "^2.12.2",
+        "brianium/paratest": "^6.4.3",
+        "fakerphp/faker": "^1.19.0",
+        "friendsofphp/php-cs-fixer": "^3.6.0",
+        "laravel/sail": "^1.13.5",
+        "malukenho/mcbumpface": "^1.1.5",
+        "mockery/mockery": "^1.5.0",
+        "nunomaduro/collision": "^6.1.0",
+        "phpunit/phpunit": "^9.5.15",
+        "spatie/laravel-ignition": "^1.0.6"
     },
     "autoload": {
         "psr-4": {
@@ -35,37 +40,70 @@
             "Tests\\": "tests/"
         }
     },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        },
+        "mc-bumpface": {
+            "stripVersionPrefixes": true
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "8.1"
+        },
+        "allow-plugins": {
+            "malukenho/mcbumpface": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@autocomplete"
         ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        "post-root-package-install": "@php -r \"file_exists('.env') || copy('.env.sail', '.env');\"",
+        "post-create-project-cmd": "@php artisan key:generate --ansi",
+        "valet": [
+            "@putenv DEBUGBAR_ENABLED=false",
+            "rm -rf node_modules/ vendor/",
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.valet', '.env');\"",
+            "@php -r \"file_exists('.env.testing') || copy('.env.testing.valet', '.env.testing');\"",
+            "@php artisan key:generate",
+            "npm install",
+            "@php artisan migrate:fresh --seed",
+            "npm run dev",
+            "@autocomplete"
         ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
+        "sail": [
+            "@putenv DEBUGBAR_ENABLED=false",
+            "rm -rf node_modules/ vendor/",
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.sail', '.env');\"",
+            "@php -r \"file_exists('.env.testing') || copy('.env.testing.sail', '.env.testing');\"",
+            "@php artisan key:generate",
+            "vendor/bin/sail up -d",
+            "vendor/bin/sail npm install",
+            "vendor/bin/sail artisan migrate:fresh --seed",
+            "vendor/bin/sail npm run dev",
+            "@autocomplete"
         ],
-        "sniff": [
-            "./vendor/bin/php-cs-fixer fix --dry-run --diff"
+        "autocomplete": [
+            "@php artisan ide-helper:generate --ansi",
+            "@php artisan ide-helper:models --nowrite --ansi",
+            "@php artisan ide-helper:meta --ansi"
         ],
-        "lint": [
-            "./vendor/bin/php-cs-fixer fix"
-        ]
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
-    },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        "sniff": "./vendor/bin/php-cs-fixer fix --dry-run --diff",
+        "lint": "./vendor/bin/php-cs-fixer fix",
+        "test": "@php artisan test --parallel --order-by random"
+    }
 }
