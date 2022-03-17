@@ -1,5 +1,3 @@
-### Databases
-
 Note: scroll down to find the SQL to execute and set this up automatically.
 
 First, you'll need to set up your **main database**:
@@ -36,21 +34,3 @@ GRANT INDEX, INSERT, TRIGGER, DROP, EVENT, CREATE, ALTER, SHOW VIEW, ALTER ROUTI
 
 FLUSH PRIVILEGES;
 ```
-
-### Project
-
-After that, run the following command to set project up:
-
-```bash
-composer run-script valet
-```
-
-It will:
-- Install Composer packages
-- Install npm packages
-- Set up the .env file
-- Generate the app key
-- Run the migrations
-- Seed the database
-- Build front-end assets
-- Provide code autocompletion
