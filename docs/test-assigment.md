@@ -107,6 +107,7 @@ ________
 - For the sake of simplicity authentication/authorization are not the scope of this test
 - We will mostly look at the code structure/quality so please focus on that. There are many ways to solve the problem, so we leave it up to you to choose your way. Try to express your creativity :)
 - Default language is English
+- When your work is done, please submit a PR to the master branch, naming it using the next format `{your-name}-test-assigment`
 
 
 **Info that you'll need**
