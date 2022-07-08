@@ -2,7 +2,7 @@
 
 Hey there! Welcome to the Qbixx test project.
 
-You can find your test assignment [here](docs/test-assigment.md).
+You can find your test assignment [here](docs/test-assignment.md).
 
 ## Setting things up
 
