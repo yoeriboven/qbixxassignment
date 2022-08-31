@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="client in clients" class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                        <tr v-for="client in clients" :key="client.id" class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                             <td class="w-1/12 px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ client.id }}</td>
                             <td class="w-auto text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ client.name }}</td>
                             <td class="w-4/12 text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
