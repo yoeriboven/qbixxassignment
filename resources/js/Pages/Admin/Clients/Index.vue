@@ -41,11 +41,11 @@
                                             <path d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z" />
                                         </svg>
                                     </a>
-                                    <a class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 py-0 px-1" href="#" title="Delete">
+                                    <button @click="confirmDeletion(client)" class="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 py-0 px-1" title="Delete">
                                         <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                             <path d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM394.8 466.1C393.2 492.3 372.3 512 346.9 512H101.1C75.75 512 54.77 492.3 53.19 466.1L31.1 128H416L394.8 466.1z" />
                                         </svg>
-                                    </a>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -54,17 +54,56 @@
             </div>
         </div>
     </AdminLayout>
+
+    <Modal :open="showConfirmDeletionModal" @close="showConfirmDeletionModal = false">
+        <template #icon>
+            <ExclamationTriangleIcon class="h-6 w-6 text-red-600" aria-hidden="true" />
+        </template>
+        <template #title>
+            Delete {{ clientToDelete.name }}
+        </template>
+        <template #description>
+            Are you sure you want to delete this client? All of their data will be permanently removed from our servers forever. This action cannot be undone.
+        </template>
+        <template #buttons>
+            <button type="button" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm" @click="deleteClient">Deactivate</button>
+            <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm" @click="showConfirmDeletionModal = false" ref="cancelButtonRef">Cancel</button>
+        </template>
+    </Modal>
 </template>
 
 <script>
+    import { ExclamationTriangleIcon } from '@heroicons/vue/24/outline'
     import AdminLayout from '@/js/Layouts/AdminLayout.vue'
+    import Modal from "@/js/Components/Modal";
 
     export default {
         components: {
+            Modal,
             AdminLayout,
+            ExclamationTriangleIcon
         },
         props: {
             clients: Object,
         },
+        data() {
+            return {
+                showConfirmDeletionModal: false,
+                clientToDelete: null
+            }
+        },
+        methods: {
+            confirmDeletion(client) {
+                this.clientToDelete = client;
+                this.showConfirmDeletionModal = true;
+            },
+            deleteClient() {
+                this.$inertia.delete('/admin/clients/' + this.clientToDelete.id, {
+                    onFinish: () => {
+                        this.showConfirmDeletionModal = false;
+                    }
+                });
+            }
+        }
     }
 </script>

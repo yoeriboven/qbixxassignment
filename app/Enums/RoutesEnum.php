@@ -24,5 +24,10 @@ class RoutesEnum
     /**
      * @string
      */
+    public const ADMIN_DELETE_CLIENT = 'admin.clients.delete';
+
+    /**
+     * @string
+     */
     public const FRONT_WELCOME = 'front.welcome';
 }

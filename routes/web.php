@@ -6,6 +6,7 @@ use App\Enums\RoutesEnum;
 use Illuminate\Support\Facades\Route;
 use Interfaces\Admin\Clients\Controllers\IndexClients;
 use Interfaces\Admin\Clients\Controllers\StoreClient;
+use Interfaces\Admin\Clients\Controllers\DeleteClient;
 use Interfaces\Front\Landing\WelcomeController;
 
 /*
@@ -20,6 +21,8 @@ use Interfaces\Front\Landing\WelcomeController;
 */
 
 Route::get('/', WelcomeController::class)->name(RoutesEnum::FRONT_WELCOME);
+
 Route::get('admin/clients', IndexClients::class)->name(RoutesEnum::ADMIN_INDEX_CLIENTS);
 Route::inertia('admin/clients/create', 'Admin/Clients/Create')->name(RoutesEnum::ADMIN_CREATE_CLIENT);
 Route::post('admin/clients/create', StoreClient::class)->name(RoutesEnum::ADMIN_STORE_CLIENT);
+Route::delete('admin/clients/{client}', DeleteClient::class)->name(RoutesEnum::ADMIN_DELETE_CLIENT);
