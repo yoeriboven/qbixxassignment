@@ -13,7 +13,7 @@ class IndexClientsTest extends FeatureTest
     /**
      * @test
      */
-    public function a guest can view clients(): void
+    public function a_guest_can_view_clients(): void
     {
         $clients = Client::factory()->count(5)->create();
 
