@@ -26,15 +26,21 @@
         </div>
         <div class="p-4">
             <div class="grid md:grid-cols-3 gap-4">
-                <div v-for="item in client.items[selectedLanguage]" :key="item.id" class="bg-white rounded-lg">
-                    <div :class="colorsForType(item.type)" class="p-2 text-sm font-semibold uppercase mt-8 text-center">
+                <div v-for="item in client.items[selectedLanguage]" :key="item.id" class="py-4 flex flex-col h-full bg-white rounded-lg text-black">
+                    <div :class="colorsForType(item.type)" class="flex-initial p-2 text-sm font-semibold uppercase text-center">
                         {{ typeString(item.type) }}
                     </div>
-                    <div class="p-4 mt-4 text-black space-y-2">
-                        <h3 class="text-2xl md:text-[50px] font-bold leading-none line-clamp-2">{{ item.title }}</h3>
-                        <p class="text-[20px]">{{ item.paragraph }}</p>
-                        <button class="font-bold text-white text-[16px] bg-[#249EEA] rounded-lg px-2 py-1 hover:bg-sky-600">{{ buttonString }}</button>
+
+                    <div class="flex-auto p-4">
+                        <h3 class="text-2xl md:text-[50px] font-bold leading-none line-clamp-2">
+                            {{item.title }}
+                        </h3>
+                        <p class="mt-4 text-[20px]">{{ item.paragraph }}</p>
                     </div>
+
+                    <button class="flex-initial w-fit mx-4 font-bold text-white text-[16px] bg-[#249EEA] rounded-lg px-2 py-1 hover:bg-sky-600">
+                        {{ buttonString }}
+                    </button>
                 </div>
             </div>
         </div>
