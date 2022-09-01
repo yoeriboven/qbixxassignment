@@ -23,4 +23,18 @@ class DeleteClientTest extends FeatureTest
 
         $this->assertFalse($client->exists());
     }
+
+    /**
+     * @test
+     */
+    public function items_are_deleted_when_a_client_is_deleted(): void
+    {
+        $client = Client::factory()->create();
+
+        $this->assertDatabaseCount('items', 9);
+
+        $this->delete(route(RoutesEnum::ADMIN_DELETE_CLIENT, $client->id));
+
+        $this->assertDatabaseCount('items', 0);
+    }
 }
