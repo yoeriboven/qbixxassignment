@@ -63,7 +63,7 @@ class UpdateClientTest extends FeatureTest
     {
         $client = Client::factory()->create();
 
-        $this->post(route(RoutesEnum::ADMIN_UPDATE_CLIENT, $client->id), [
+        $this->put(route(RoutesEnum::ADMIN_UPDATE_CLIENT, $client->id), [
             $columnName => $value,
         ])->assertSessionHasErrors($columnName);
     }
