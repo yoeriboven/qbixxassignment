@@ -17,7 +17,7 @@ class Client extends Model
     {
         parent::boot();
 
-        parent::saved(function (Client $client) {
+        parent::created(function (Client $client) {
             $items = include resource_path('default_items.php');
 
             $client->items()->createMany($items);
