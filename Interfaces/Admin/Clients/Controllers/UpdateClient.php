@@ -31,6 +31,8 @@ class UpdateClient extends Controller
 
         $client->items()->upsert($items, ['id'], ['title', 'paragraph', 'type']);
 
-        return redirect()->route(RoutesEnum::ADMIN_INDEX_CLIENTS);
+        return redirect()
+            ->route(RoutesEnum::ADMIN_INDEX_CLIENTS)
+            ->with('success', "{$client->name} has been updated successfully");
     }
 }

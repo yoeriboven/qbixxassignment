@@ -14,8 +14,10 @@ class StoreClient extends Controller
 {
     public function __invoke(StoreClientRequest $request): RedirectResponse
     {
-        Client::create($request->safe(['name']));
+        $client = Client::create($request->safe(['name']));
 
-        return redirect()->route(RoutesEnum::ADMIN_INDEX_CLIENTS);
+        return redirect()
+            ->route(RoutesEnum::ADMIN_INDEX_CLIENTS)
+            ->with('success', "Great! {$client->name} has been added as a client.");
     }
 }

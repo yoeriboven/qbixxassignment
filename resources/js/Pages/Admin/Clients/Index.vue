@@ -3,9 +3,14 @@
         <Head title="Clients" />
 
         <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="py-8 px-6 flex justify-between">
+                <div>
+                    <SuccessAlert v-if="$page.props.flash.success">
+                        <template #title>{{ $page.props.flash.success }}</template>
+                    </SuccessAlert>
+                </div>
 
-            <div class="py-8 px-6 flex justify-end">
-                <Link class="inline-block px-6 py-2 border-2 border-blue-600 bg-blue-600 border-blue-600 text-white leading-tight font-bold rounded hover:bg-blue-500 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" href="/admin/clients/create">
+                <Link class="block h-fit px-6 py-2 border-2 border-blue-600 bg-blue-600 border-blue-600 text-white leading-tight font-bold rounded hover:bg-blue-500 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" href="/admin/clients/create">
                     New client
                 </Link>
             </div>
@@ -76,10 +81,12 @@
     import { ExclamationTriangleIcon } from '@heroicons/vue/24/outline'
     import AdminLayout from '@/js/Layouts/AdminLayout.vue'
     import Modal from "@/js/Components/Modal";
+    import SuccessAlert from "@/js/Components/SuccessAlert";
 
     export default {
         components: {
             Modal,
+            SuccessAlert,
             AdminLayout,
             ExclamationTriangleIcon
         },
