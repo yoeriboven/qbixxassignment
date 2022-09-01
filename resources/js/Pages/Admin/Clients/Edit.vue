@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="space-y-8">
-                            <div v-for="(item, index) in items[selectedLanguage]" :key="item.id">
+                            <div v-for="(item, index) in form.items[selectedLanguage]" :key="item.id">
                                 <span class="font-semibold">Item {{ index + 1 }}</span>
                                 <div class="space-y-4">
                                     <div>
@@ -126,13 +126,12 @@
 
         props: {
             client: Object,
-            items: Object,
         },
 
         setup(props) {
             const form = useForm({
                 name: props.client.name,
-                items: props.items
+                items: props.client.items
             })
 
             return {form}

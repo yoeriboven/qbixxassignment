@@ -26,7 +26,7 @@
         </div>
         <div class="p-4">
             <div class="grid md:grid-cols-3 gap-4">
-                <div v-for="item in items[selectedLanguage]" :key="item.id" class="bg-white rounded-lg">
+                <div v-for="item in client.items[selectedLanguage]" :key="item.id" class="bg-white rounded-lg">
                     <div class="bg-sky-400 text-sky-900 p-2 text-sm font-semibold uppercase mt-8 text-center">
                         {{ typeString(item.type) }}
                     </div>
@@ -57,7 +57,6 @@ export default {
 
         props: {
             client: Object,
-            items: Object,
         },
 
         data() {

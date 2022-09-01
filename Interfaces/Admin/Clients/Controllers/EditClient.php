@@ -15,8 +15,7 @@ class EditClient extends Controller
     public function __invoke(Request $request, Client $client): Response
     {
         return Inertia::render('Admin/Clients/Edit', [
-            'client' => $client,
-            'items' => $client->items->groupBy('language'),
+            'client' => $client->withItemsGroupedByLanguage(),
         ]);
     }
 }

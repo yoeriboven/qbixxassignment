@@ -28,4 +28,11 @@ class Client extends Model
     {
         return $this->hasMany(Item::class);
     }
+
+    public function withItemsGroupedByLanguage(): self
+    {
+        $this->setRelation('items', $this->items->groupBy('language'));
+
+        return $this;
+    }
 }
