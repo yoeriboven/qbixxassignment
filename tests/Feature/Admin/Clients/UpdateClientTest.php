@@ -41,7 +41,7 @@ class UpdateClientTest extends FeatureTest
                     array_merge($item->toArray(), [
                         'title' => 'New title',
                         'paragraph' => 'New paragraph',
-                        'type' => 9,
+                        'type' => 2,
                     ])
                 ]
             ]
@@ -51,15 +51,15 @@ class UpdateClientTest extends FeatureTest
 
         $this->assertSame('New title', $item->title);
         $this->assertSame('New paragraph', $item->paragraph);
-        $this->assertSame(9, $item->type);
+        $this->assertSame(2, $item->type);
     }
 
     /**
      * @test
      *
-     * @dataProvider invalidData
+     * @dataProvider invalidNameData
      */
-    public function a_guest_can_not_update_a_new_client_with_invalid_data(string $columnName, string $value): void
+    public function a_guest_can_not_update_a_new_client_with_an_invalid_name(string $columnName, string $value): void
     {
         $client = Client::factory()->create();
 
@@ -68,12 +68,43 @@ class UpdateClientTest extends FeatureTest
         ])->assertSessionHasErrors($columnName);
     }
 
-    public function invalidData(): array
+    public function invalidNameData(): array
     {
         return [
-            'required' => ['name', ''],
-            'min 4' => ['name', 'fre'],
-            'max 30' => ['name', 'Do you know someone with a name longer than 30 characters?'],
+            'name required' => ['name', ''],
+            'name min 4' => ['name', 'fre'],
+            'name max 30' => ['name', 'Do you know someone with a name longer than 30 characters?'],
+        ];
+    }
+
+    /**
+     * @test
+     *
+     * @dataProvider invalidItemsData
+     */
+    public function a_guest_can_not_update_a_new_client_with_invalid_items_data(string $columnName, string $value): void
+    {
+        $client = Client::factory()->create();
+
+        $this->put(route(RoutesEnum::ADMIN_UPDATE_CLIENT, $client->id), [
+            'items' => [
+                'en' => [
+                    [
+                        $columnName => $value,
+                    ]
+                ]
+            ]
+        ])->assertSessionHasErrors('items.en.0.'.$columnName);
+    }
+
+    public function invalidItemsData(): array
+    {
+        return [
+            'items title required' => ['title', ''],
+            'items paragraph required' => ['paragraph', ''],
+            'items type required' => ['type', ''],
+            'items type integer' => ['type', 'this is not an integer'],
+            'items type should be 1,2,3' => ['type', '9'],
         ];
     }
 }

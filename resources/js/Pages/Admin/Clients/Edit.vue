@@ -6,7 +6,7 @@
             <div class="block p-6 rounded-lg shadow-lg bg-white w-2/3">
                 <h1 class="font-bold text-xl">Edit {{ client.name }}</h1>
 
-                <form method="POST" @submit.prevent="form.put('/admin/clients/' + client.id)">
+                <form method="POST" @submit.prevent="submitForm(client.id)">
                     <div class="form-group mb-6">
                         <label for="name" class="form-label inline-block mb-2 text-gray-700">
                             Name
@@ -54,6 +54,10 @@
                                             placeholder="Enter title"
                                             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         >
+
+                                        <div v-if="errorForItem(index, 'title')" class="mt-2 font-semibold text-red-500">
+                                            {{ errorForItem(index, 'title') }}
+                                        </div>
                                     </div>
                                     <div>
                                         <label :for="selectedLanguage + '-' + index + '-paragraph'"
@@ -68,6 +72,10 @@
                                             placeholder="Enter title"
                                             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         ></textarea>
+
+                                        <div v-if="errorForItem(index, 'paragraph')" class="mt-2 font-semibold text-red-500">
+                                            {{ errorForItem(index, 'paragraph') }}
+                                        </div>
                                     </div>
                                     <div>
                                         <label :for="selectedLanguage + '-' + index + '-type'"
@@ -84,6 +92,10 @@
                                             <option :value="ClientItemType.Philosophy">Philosophy</option>
                                             <option :value="ClientItemType.Design">Design</option>
                                         </select>
+
+                                        <div v-if="errorForItem(index, 'type')" class="mt-2 font-semibold text-red-500">
+                                            {{ errorForItem(index, 'type') }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -136,6 +148,17 @@
         methods: {
             changeLanguage(event) {
                 this.selectedLanguage = event.target.value;
+            },
+            submitForm(id) {
+                this.form.put('/admin/clients/' + id, {
+                    preserveState: true,
+                    preserveScroll: true
+                })
+            },
+            errorForItem(index, field) {
+                const key = 'items.' + this.selectedLanguage + '.' + index + '.' + field;
+                
+                return this.form.errors[key];
             }
         }
     }
