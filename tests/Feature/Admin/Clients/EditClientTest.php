@@ -7,14 +7,14 @@ namespace Tests\Feature\Admin\Clients;
 use App\Enums\RoutesEnum;
 use Tests\FeatureTest;
 
-class CreateClientTest extends FeatureTest
+class EditClientTest extends FeatureTest
 {
     /**
      * @test
      */
-    public function a_guest_can_create_clients(): void
+    public function a_guest_can_edit_clients(): void
     {
-        $this->get(route(RoutesEnum::ADMIN_CREATE_CLIENT))
+        $this->get(route(RoutesEnum::ADMIN_EDIT_CLIENT))
             ->assertOk();
     }
 }

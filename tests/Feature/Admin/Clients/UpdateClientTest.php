@@ -8,29 +8,12 @@ use App\Enums\RoutesEnum;
 use Domain\Clients\Models\Client;
 use Tests\FeatureTest;
 
-class StoreClientTest extends FeatureTest
+class UpdateClientTest extends FeatureTest
 {
     /**
      * @test
      */
-    public function a_guest_can_edit_a_clients_name(): void
-    {
-//        $formData = [
-//            'name' => 'Test name',
-//        ];
-//
-//        $this->post(route(RoutesEnum::ADMIN_STORE_CLIENT), $formData)
-//            ->assertRedirect(route(RoutesEnum::ADMIN_INDEX_CLIENTS));
-//
-//        $client = Client::first();
-//
-//        $this->assertSame('Test name', $client->name);
-    }
-
-    /**
-     * @test
-     */
-    public function a_guest_can_change_a_clients_items(): void
+    public function a_guest_can_store_a_new_client(): void
     {
 
     }
