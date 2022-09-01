@@ -3,7 +3,7 @@
 
     <div class="min-h-screen bg-[#575F65] font-[Montserrat]">
         <div class="bg-white px-4 py-2 flex justify-between items-center">
-            <h2 class="text-"> {{ client.name }}</h2>
+            <h1> {{ client.name }}</h1>
             <Dropdown>
                 <template #button>
                     <MenuButton class="inline-flex w-full justify-center rounded-lg bg-[#249EEA] px-4 py-2 text-[14px] font-medium text-white shadow-sm hover:bg-sky-700">
