@@ -16,6 +16,7 @@ class ShowClient extends Controller
     {
         return Inertia::render('Admin/Clients/Show', [
             'client' => $client,
+            'items' => $client->items->groupBy('language'),
         ]);
     }
 }

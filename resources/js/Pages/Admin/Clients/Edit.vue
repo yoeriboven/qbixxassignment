@@ -30,7 +30,7 @@
                             <h2 class="text-lg font-semibold">Items</h2>
                             <div>
                                 <label for="language" class="block text-sm font-medium text-gray-700">Language</label>
-                                <select @change="changedLanguage($event)" id="language" name="language" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                                <select @change="changeLanguage($event)" id="language" name="language" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                                     <option value="en">English</option>
                                     <option value="nl">Dutch</option>
                                     <option value="fr">French</option>
@@ -130,10 +130,8 @@
         },
 
         methods: {
-            changedLanguage(event) {
+            changeLanguage(event) {
                 this.selectedLanguage = event.target.value;
-                        console.log(this.selectedLanguage);
-
             }
         }
     }
