@@ -13,14 +13,14 @@ class UpdateClientTest extends FeatureTest
     /**
      * @test
      */
-    public function a_guest_can_edit_a_clients_name(): void
+    public function aGuestCanEditAClientsName(): void
     {
         $client = Client::factory()->create([
             'name' => 'Bruce Wayne',
         ]);
 
         $this->put(route(RoutesEnum::ADMIN_UPDATE_CLIENT, $client->id), [
-            'name' => 'Tony Stark'
+            'name' => 'Tony Stark',
         ])->assertRedirect(route(RoutesEnum::ADMIN_INDEX_CLIENTS));
 
         $this->assertSame('Tony Stark', $client->fresh()->name);
@@ -29,7 +29,7 @@ class UpdateClientTest extends FeatureTest
     /**
      * @test
      */
-    public function a_guest_can_change_a_clients_items(): void
+    public function aGuestCanChangeAClientsItems(): void
     {
         $client = Client::factory()->create();
         $item = $client->items()->first();
@@ -42,9 +42,9 @@ class UpdateClientTest extends FeatureTest
                         'title' => 'New title',
                         'paragraph' => 'New paragraph',
                         'type' => 2,
-                    ])
-                ]
-            ]
+                    ]),
+                ],
+            ],
         ])->assertRedirect(route(RoutesEnum::ADMIN_INDEX_CLIENTS));
 
         $item->refresh();
@@ -59,7 +59,7 @@ class UpdateClientTest extends FeatureTest
      *
      * @dataProvider invalidNameData
      */
-    public function a_guest_can_not_update_a_new_client_with_an_invalid_name(string $columnName, string $value): void
+    public function aGuestCanNotUpdateANewClientWithAnInvalidName(string $columnName, string $value): void
     {
         $client = Client::factory()->create();
 
@@ -82,7 +82,7 @@ class UpdateClientTest extends FeatureTest
      *
      * @dataProvider invalidItemsData
      */
-    public function a_guest_can_not_update_a_new_client_with_invalid_items_data(string $columnName, string $value): void
+    public function aGuestCanNotUpdateANewClientWithInvalidItemsData(string $columnName, string $value): void
     {
         $client = Client::factory()->create();
 
@@ -91,9 +91,9 @@ class UpdateClientTest extends FeatureTest
                 'en' => [
                     [
                         $columnName => $value,
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ])->assertSessionHasErrors('items.en.0.'.$columnName);
     }
 

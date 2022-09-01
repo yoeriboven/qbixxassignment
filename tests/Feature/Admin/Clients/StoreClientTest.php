@@ -13,7 +13,7 @@ class StoreClientTest extends FeatureTest
     /**
      * @test
      */
-    public function a_guest_can_store_a_new_client(): void
+    public function aGuestCanStoreANewClient(): void
     {
         $formData = [
             'name' => 'Test name',
@@ -32,7 +32,7 @@ class StoreClientTest extends FeatureTest
      *
      * @dataProvider invalidData
      */
-    public function a_guest_can_not_store_a_new_client_with_invalid_data(string $columnName, string $value): void
+    public function aGuestCanNotStoreANewClientWithInvalidData(string $columnName, string $value): void
     {
         $formData = [
             $columnName => $value,

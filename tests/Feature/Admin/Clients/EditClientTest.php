@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Tests\Feature\Admin\Clients;
 
 use App\Enums\RoutesEnum;
-use Tests\FeatureTest;
 use Domain\Clients\Models\Client;
+use Tests\FeatureTest;
 
 class EditClientTest extends FeatureTest
 {
     /**
      * @test
      */
-    public function a_guest_can_edit_clients(): void
+    public function aGuestCanEditClients(): void
     {
         $client = Client::factory()->create();
 

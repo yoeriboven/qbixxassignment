@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tests\Feature\Admin\Clients;
 
 use App\Enums\RoutesEnum;
-use Tests\FeatureTest;
 use Domain\Clients\Models\Client;
+use Tests\FeatureTest;
 
 class ShowClientTest extends FeatureTest
 {
@@ -16,7 +16,7 @@ class ShowClientTest extends FeatureTest
      * English is the default language on the show page.
      * That's why we're checking for the items in English.
      */
-    public function a_guest_can_see_the_clients_items_and_name(): void
+    public function aGuestCanSeeTheClientsItemsAndName(): void
     {
         $client = Client::factory()->create();
 

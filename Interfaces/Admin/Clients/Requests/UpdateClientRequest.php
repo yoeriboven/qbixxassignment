@@ -14,7 +14,7 @@ class UpdateClientRequest extends FormRequest
             'name' => ['required', 'string', 'min:4', 'max:30'],
             'items.*.*.title' => ['required', 'string'],
             'items.*.*.paragraph' => ['required'],
-            'items.*.*.type' => ['required', 'integer', 'in:0,1,2']
+            'items.*.*.type' => ['required', 'integer', 'in:0,1,2'],
         ];
     }
 

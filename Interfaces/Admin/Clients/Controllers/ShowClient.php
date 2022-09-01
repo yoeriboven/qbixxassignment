@@ -15,7 +15,7 @@ class ShowClient extends Controller
     public function __invoke(Request $request, Client $client): Response
     {
         return Inertia::render('Admin/Clients/Show', [
-            'client' => $client->withItemsGroupedByLanguage()
+            'client' => $client->withItemsGroupedByLanguage(),
         ]);
     }
 }

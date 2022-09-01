@@ -8,8 +8,6 @@ use App\Enums\RoutesEnum;
 use App\Http\Controllers\Controller;
 use Domain\Clients\Models\Client;
 use Illuminate\Http\RedirectResponse;
-use Interfaces\Admin\Clients\Requests\StoreClientRequest;
-use Illuminate\Http\Request;
 use Interfaces\Admin\Clients\Requests\UpdateClientRequest;
 
 class UpdateClient extends Controller
@@ -18,7 +16,7 @@ class UpdateClient extends Controller
     {
         $client->update($request->safe(['name']));
 
-        $items = collect($request->items)->flatten(1)->map(function(array $item) {
+        $items = collect($request->items)->flatten(1)->map(function (array $item) {
             return [
                 'id' => $item['id'],
                 'client_id' => $item['client_id'],

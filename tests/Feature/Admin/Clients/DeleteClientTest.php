@@ -13,7 +13,7 @@ class DeleteClientTest extends FeatureTest
     /**
      * @test
      */
-    public function a_user_can_delete_clients(): void
+    public function aUserCanDeleteClients(): void
     {
         $client = Client::factory()->create();
 
@@ -27,7 +27,7 @@ class DeleteClientTest extends FeatureTest
     /**
      * @test
      */
-    public function items_are_deleted_when_a_client_is_deleted(): void
+    public function itemsAreDeletedWhenAClientIsDeleted(): void
     {
         $client = Client::factory()->create();
 

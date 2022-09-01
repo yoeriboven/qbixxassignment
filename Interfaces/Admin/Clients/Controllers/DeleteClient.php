@@ -8,7 +8,6 @@ use App\Enums\RoutesEnum;
 use App\Http\Controllers\Controller;
 use Domain\Clients\Models\Client;
 use Illuminate\Http\RedirectResponse;
-use Interfaces\Admin\Clients\Requests\StoreClientRequest;
 use Illuminate\Http\Request;
 
 class DeleteClient extends Controller
