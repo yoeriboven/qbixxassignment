@@ -14,6 +14,11 @@ class RoutesEnum
     /**
      * @string
      */
+    public const ADMIN_SHOW_CLIENT = 'admin.clients.show';
+
+    /**
+     * @string
+     */
     public const ADMIN_CREATE_CLIENT = 'admin.clients.create';
 
     /**
