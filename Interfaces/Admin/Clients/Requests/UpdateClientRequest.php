@@ -12,7 +12,7 @@ class UpdateClientRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:4', 'max:30'],
-            'items.*.*.title' => ['required', 'string'],
+//            'items.*.*.title' => ['required', 'string'],
         ];
     }
 

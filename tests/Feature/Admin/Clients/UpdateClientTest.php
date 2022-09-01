@@ -13,9 +13,45 @@ class UpdateClientTest extends FeatureTest
     /**
      * @test
      */
-    public function a_guest_can_store_a_new_client(): void
+    public function a_guest_can_edit_a_clients_name(): void
     {
+        $client = Client::factory()->create([
+            'name' => 'Bruce Wayne',
+        ]);
 
+        $this->put(route(RoutesEnum::ADMIN_UPDATE_CLIENT, $client->id), [
+            'name' => 'Tony Stark'
+        ])->assertRedirect(route(RoutesEnum::ADMIN_INDEX_CLIENTS));
+
+        $this->assertSame('Tony Stark', $client->fresh()->name);
+    }
+
+    /**
+     * @test
+     */
+    public function a_guest_can_change_a_clients_items(): void
+    {
+        $client = Client::factory()->create();
+        $item = $client->items()->first();
+
+        $this->put(route(RoutesEnum::ADMIN_UPDATE_CLIENT, $client->id), [
+            'name' => $client->name,
+            'items' => [
+                'en' => [
+                    array_merge($item->toArray(), [
+                        'title' => 'New title',
+                        'paragraph' => 'New paragraph',
+                        'type' => 9,
+                    ])
+                ]
+            ]
+        ])->assertRedirect(route(RoutesEnum::ADMIN_INDEX_CLIENTS));
+
+        $item->refresh();
+
+        $this->assertSame('New title', $item->title);
+        $this->assertSame('New paragraph', $item->paragraph);
+        $this->assertSame(9, $item->type);
     }
 
     /**
@@ -23,14 +59,13 @@ class UpdateClientTest extends FeatureTest
      *
      * @dataProvider invalidData
      */
-    public function a_guest_can_not_store_a_new_client_with_invalid_data(string $columnName, string $value): void
+    public function a_guest_can_not_update_a_new_client_with_invalid_data(string $columnName, string $value): void
     {
-        $formData = [
-            $columnName => $value,
-        ];
+        $client = Client::factory()->create();
 
-        $this->post(route(RoutesEnum::ADMIN_STORE_CLIENT), $formData)
-            ->assertSessionHasErrors($columnName);
+        $this->post(route(RoutesEnum::ADMIN_UPDATE_CLIENT, $client->id), [
+            $columnName => $value,
+        ])->assertSessionHasErrors($columnName);
     }
 
     public function invalidData(): array
