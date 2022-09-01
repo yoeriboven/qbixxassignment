@@ -42,12 +42,12 @@
                                 <span class="font-semibold">Item {{ index + 1 }}</span>
                                 <div class="space-y-4">
                                     <div>
-                                        <label :for="selectedLanguage + '-' + index"
+                                        <label :for="selectedLanguage + '-' + index + '-title'"
                                                class="form-label inline-block mb-2 text-gray-700">
                                             Title
                                         </label>
                                         <input
-                                            :id="selectedLanguage + '-' + index"
+                                            :id="selectedLanguage + '-' + index + '-title'"
                                             name="name"
                                             type="text"
                                             v-model="form.items[selectedLanguage][index].title"
@@ -56,12 +56,12 @@
                                         >
                                     </div>
                                     <div>
-                                        <label :for="selectedLanguage + '-' + index"
+                                        <label :for="selectedLanguage + '-' + index + '-paragraph'"
                                                class="form-label inline-block mb-2 text-gray-700">
                                             Paragraph
                                         </label>
                                         <textarea
-                                            :id="selectedLanguage + '-' + index"
+                                            :id="selectedLanguage + '-' + index + '-paragraph'"
                                             name="name"
                                             type="text"
                                             v-model="form.items[selectedLanguage][index].paragraph"
@@ -70,18 +70,20 @@
                                         ></textarea>
                                     </div>
                                     <div>
-                                        <label :for="selectedLanguage + '-' + index"
-                                               class="form-label inline-block mb-2 text-gray-700">
-                                            Paragraph
+                                        <label :for="selectedLanguage + '-' + index + '-type'"
+                                               class="block text-sm font-medium text-gray-700">
+                                            Type
                                         </label>
-                                        <textarea
-                                            :id="selectedLanguage + '-' + index"
-                                            name="name"
-                                            type="text"
-                                            v-model="form.items[selectedLanguage][index].paragraph"
-                                            placeholder="Enter title"
-                                            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        ></textarea>
+                                        <select
+                                            v-model="item.type"
+                                            :id="selectedLanguage + '-' + index + '-type'"
+                                            name="language"
+                                            class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+                                        >
+                                            <option :value="ClientItemType.Wisdom">Wisdom</option>
+                                            <option :value="ClientItemType.Philosophy">Philosophy</option>
+                                            <option :value="ClientItemType.Design">Design</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -103,6 +105,7 @@
 <script>
     import {useForm} from '@inertiajs/inertia-vue3'
     import AdminLayout from '@/js/Layouts/AdminLayout.vue'
+    import { ClientItemType} from "@/js/enums.js"
 
     export default {
         components: {
@@ -126,6 +129,7 @@
         data() {
             return {
                 selectedLanguage: 'en',
+                ClientItemType: ClientItemType,
             }
         },
 
