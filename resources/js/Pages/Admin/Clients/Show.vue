@@ -33,7 +33,7 @@
             <div class="grid grid-cols-3 gap-4">
                 <div v-for="item in items[selectedLanguage]" :key="item.id" class="w-full bg-white rounded-lg">
                     <div class="bg-sky-400 text-sky-900 p-2 text-sm font-semibold uppercase mt-8 text-center">
-                        {{ item.type }}
+                        {{ typeString(item.type) }}
                     </div>
                     <div class="p-4 mt-4 text-black space-y-2">
                         <h3 class="text-[50px] font-bold leading-none">{{ item.title}}</h3>
@@ -49,7 +49,9 @@
 <script>
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-    export default {
+import { ClientItemType} from "@/js/enums.js"
+
+export default {
         components: {
             Menu,
             MenuButton,
@@ -72,32 +74,45 @@ import { ChevronDownIcon } from '@heroicons/vue/20/solid'
         methods: {
             changeLanguage(language) {
                 this.selectedLanguage = language
+            },
+            typeString(type) {
+                const types = {
+                    [ClientItemType.Wisdom] : {
+                        "en": "Wisdom",
+                        "nl": "Wijsheid",
+                        "fr" : "Sagesse"
+                    },
+                    [ClientItemType.Philosophy] : {
+                        "en": "Philosophy",
+                        "nl": "Filosofie",
+                        "fr" : "Philosophie"
+                    },
+                    [ClientItemType.Design] : {
+                        "en": "Design",
+                        "nl": "Ontwerp",
+                        "fr" : "Conception"
+                    }
+                }
+
+                return types[type][this.selectedLanguage];
             }
         },
 
         computed: {
             languageString() {
-                if (this.selectedLanguage === 'nl') {
-                    return 'Taal';
-                }
-
-                if (this.selectedLanguage === 'fr') {
-                    return 'Langue';
-                }
-
-                return 'Language';
+                return {
+                    'en': 'Language',
+                    'nl': 'Taal',
+                    'fr': 'Langue'
+                }[this.selectedLanguage];
             },
 
             buttonString() {
-                if (this.selectedLanguage === 'nl') {
-                    return 'Gewoon een knop';
-                }
-
-                if (this.selectedLanguage === 'fr') {
-                    return 'Juste un bouton';
-                }
-
-                return 'Just a button';
+                return {
+                    'en': 'Just a button',
+                    'nl': 'Gewoon een knop',
+                    'fr': 'Juste un bouton'
+                }[this.selectedLanguage];
             },
           }
     }
