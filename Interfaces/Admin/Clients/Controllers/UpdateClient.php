@@ -8,6 +8,7 @@ use App\Enums\RoutesEnum;
 use App\Http\Controllers\Controller;
 use Domain\Clients\Models\Client;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Collection;
 use Interfaces\Admin\Clients\Requests\UpdateClientRequest;
 
 class UpdateClient extends Controller
@@ -16,7 +17,20 @@ class UpdateClient extends Controller
     {
         $client->update($request->safe(['name']));
 
-        $items = collect($request->items)->flatten(1)->map(function (array $item) {
+        $client->items()->upsert(
+            $this->normalizedItems($request->items)->toArray(),
+            ['id'],
+            ['title', 'paragraph', 'type']
+        );
+
+        return redirect()
+            ->route(RoutesEnum::ADMIN_INDEX_CLIENTS)
+            ->with('success', "{$client->name} has been updated successfully");
+    }
+
+    protected function normalizedItems($items): Collection
+    {
+        return collect($items)->flatten(1)->map(function (array $item) {
             return [
                 'id' => $item['id'],
                 'client_id' => $item['client_id'],
@@ -25,12 +39,6 @@ class UpdateClient extends Controller
                 'paragraph' => $item['paragraph'],
                 'type' => $item['type'],
             ];
-        })->toArray();
-
-        $client->items()->upsert($items, ['id'], ['title', 'paragraph', 'type']);
-
-        return redirect()
-            ->route(RoutesEnum::ADMIN_INDEX_CLIENTS)
-            ->with('success', "{$client->name} has been updated successfully");
+        });
     }
 }
