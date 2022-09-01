@@ -28,7 +28,7 @@ Route::get('/', WelcomeController::class)->name(RoutesEnum::FRONT_WELCOME);
 Route::prefix('admin')->group(function() {
     Route::get('clients', IndexClients::class)->name(RoutesEnum::ADMIN_INDEX_CLIENTS);
     Route::inertia('clients/create', 'Admin/Clients/Create')->name(RoutesEnum::ADMIN_CREATE_CLIENT);
-    Route::post('clients/create', StoreClient::class)->name(RoutesEnum::ADMIN_STORE_CLIENT);
+    Route::post('clients', StoreClient::class)->name(RoutesEnum::ADMIN_STORE_CLIENT);
     Route::get('clients/{client}', ShowClient::class)->name(RoutesEnum::ADMIN_SHOW_CLIENT);
     Route::get('clients/{client}/edit', EditClient::class)->name(RoutesEnum::ADMIN_EDIT_CLIENT);
     Route::put('clients/{client}', UpdateClient::class)->name(RoutesEnum::ADMIN_UPDATE_CLIENT);

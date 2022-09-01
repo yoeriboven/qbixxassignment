@@ -5,7 +5,7 @@
         <div class="w-full py-8 flex justify-center">
             <div class="block p-6 rounded-lg shadow-lg bg-white w-1/3">
 
-                <form method="POST" @submit.prevent="form.post('/admin/clients/create')">
+                <form method="POST" @submit.prevent="form.post('/admin/clients')">
                     <div class="form-group mb-6">
                         <label for="name" class="form-label inline-block mb-2 text-gray-700">
                             Name
