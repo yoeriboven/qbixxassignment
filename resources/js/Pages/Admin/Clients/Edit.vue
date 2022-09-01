@@ -157,7 +157,7 @@
             },
             errorForItem(index, field) {
                 const key = 'items.' + this.selectedLanguage + '.' + index + '.' + field;
-                
+
                 return this.form.errors[key];
             }
         }
