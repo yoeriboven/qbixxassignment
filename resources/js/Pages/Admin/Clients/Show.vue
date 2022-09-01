@@ -3,10 +3,10 @@
 
     <div class="min-h-screen bg-[#575F65] font-[Montserrat]">
         <div class="bg-white px-4 py-2 flex justify-between items-center">
-            <h1> {{ client.name }}</h1>
+            <h1 class="text-[20px] text-black"> {{ client.name }}</h1>
             <Dropdown>
                 <template #button>
-                    <MenuButton class="inline-flex w-full justify-center rounded-lg bg-[#249EEA] px-4 py-2 text-[14px] font-medium text-white shadow-sm hover:bg-sky-700">
+                    <MenuButton class="inline-flex w-full justify-center rounded-lg bg-[#249EEA] px-4 py-2 text-[14px] font-bold text-white shadow-sm hover:bg-sky-700">
                         {{  languageString }}
                         <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
                     </MenuButton>
