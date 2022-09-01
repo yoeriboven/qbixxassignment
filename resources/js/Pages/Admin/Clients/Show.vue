@@ -27,7 +27,7 @@
         <div class="p-4">
             <div class="grid md:grid-cols-3 gap-4">
                 <div v-for="item in client.items[selectedLanguage]" :key="item.id" class="bg-white rounded-lg">
-                    <div class="bg-sky-400 text-sky-900 p-2 text-sm font-semibold uppercase mt-8 text-center">
+                    <div :class="colorsForType(item.type)" class="p-2 text-sm font-semibold uppercase mt-8 text-center">
                         {{ typeString(item.type) }}
                     </div>
                     <div class="p-4 mt-4 text-black space-y-2">
@@ -89,6 +89,14 @@ export default {
                 }
 
                 return types[type][this.selectedLanguage];
+            },
+            colorsForType(type){
+                const colors = {
+                    [ClientItemType.Wisdom] : 'bg-sky-400 text-sky-900',
+                    [ClientItemType.Philosophy] : 'bg-orange-400 text-orange-900',
+                    [ClientItemType.Design] : 'bg-green-400 text-green-900',
+                }
+                return colors[type];
             }
         },
 
