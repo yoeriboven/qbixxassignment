@@ -25,13 +25,13 @@
             </Dropdown>
         </div>
         <div class="p-4">
-            <div class="grid grid-cols-3 gap-4">
-                <div v-for="item in items[selectedLanguage]" :key="item.id" class="w-full bg-white rounded-lg">
+            <div class="grid md:grid-cols-3 gap-4">
+                <div v-for="item in items[selectedLanguage]" :key="item.id" class="bg-white rounded-lg">
                     <div class="bg-sky-400 text-sky-900 p-2 text-sm font-semibold uppercase mt-8 text-center">
                         {{ typeString(item.type) }}
                     </div>
                     <div class="p-4 mt-4 text-black space-y-2">
-                        <h3 class="text-[50px] font-bold leading-none">{{ item.title}}</h3>
+                        <h3 class="text-2xl md:text-[50px] font-bold leading-none line-clamp-2">{{ item.title }}</h3>
                         <p class="text-[20px]">{{ item.paragraph }}</p>
                         <button class="font-bold text-white text-[16px] bg-[#249EEA] rounded-lg px-2 py-1 hover:bg-sky-600">{{ buttonString }}</button>
                     </div>
