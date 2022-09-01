@@ -16,6 +16,7 @@ class EditClient extends Controller
     {
         return Inertia::render('Admin/Clients/Edit', [
             'client' => $client,
+            'items' => $client->items->groupBy('language'),
         ]);
     }
 }
